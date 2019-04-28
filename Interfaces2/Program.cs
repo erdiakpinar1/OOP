@@ -8,11 +8,20 @@ namespace Interfaces2
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
- 
-            Console.ReadKey();
+            //interfaceler özellikle katmanlar arasýnda yoðun geçiþlerde kullanýlýyor.
+            CustomerInterface2();
 
+            Console.ReadKey();
+        }
+
+        private static void CustomerInterface2()
+        {
+            CustomerManager customerManager = new CustomerManager();
+            customerManager.Add(new SqlServerCustomerDal());
+            customerManager.Add(new OracleCustomerDal());
         }
     }
 }
